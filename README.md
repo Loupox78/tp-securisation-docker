@@ -10,7 +10,7 @@ Application : Quiz Docker (`dockerfile-exercice2`), construite avec Vite puis se
 | `trivy-initial.txt` | Scan Trivy de `quiz-docker:initial` |
 | `trivy-secure.txt` | Scan Trivy de `quiz-docker:secure` |
 
-Image publiée : `TON_VRAI_ID_DOCKER/quiz-docker:secure` sur Docker Hub
+Image publiée : `loupox78/quiz-docker:secure` sur Docker Hub
 
 Environnement : macOS (Apple Silicon, arm64), Docker 29.2.0, scans Trivy du 25/11/2026.
 
@@ -131,8 +131,8 @@ docker exec quiz-secure sh -c 'which node npm apk curl; echo fin'   # rien trouv
 docker inspect quiz-secure --format '{{.State.Health.Status}}'      # healthy
 docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v "$PWD":/out \
   aquasec/trivy image --scanners vuln -f table -o /out/trivy-secure.txt quiz-docker:secure
-docker tag quiz-docker:secure TON_VRAI_ID_DOCKER/quiz-docker:secure
-docker push TON_VRAI_ID_DOCKER/quiz-docker:secure
+docker tag quiz-docker:secure loupox78/quiz-docker:secure
+docker push loupox78/quiz-docker:secure
 ```
 
 ### Tableau comparatif
